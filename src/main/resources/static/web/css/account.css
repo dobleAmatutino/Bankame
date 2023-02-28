@@ -1,0 +1,35 @@
+.transactionSubtitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    ;
+}
+
+th,td{
+    font-family:'Barlow Condensed', sans-serif;
+    font-size: 188%;
+    text-rendering: optimizeLegibility;
+    color:black
+}
+
+.table {
+    width: 100%;
+}
+.tableContainer{
+    
+}
+
+@media screen and (max-width: 965px) {
+    .table {
+        width: 100%;
+       
+    }
+
+    .transaction-description{
+        display: none;
+    }
+    th,td{
+        font-family:'Barlow Condensed', sans-serif;
+        font-size: 100%;
+        text-rendering: optimizeLegibility;
+        color:black
+    }
+}

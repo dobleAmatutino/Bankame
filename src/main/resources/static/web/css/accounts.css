@@ -1,0 +1,282 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header {
+    height: fit-content;
+    display: flex;
+    padding: 1%;
+    background-image: linear-gradient(85deg, #ffa6f9 0, #e08ceb 25%, #b46cd8 50%, #844fc5 75%, #533db9 100%);
+    justify-content: space-around;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.saludoAlCliente {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 200%;
+    font-weight: bolder!important;
+  
+    color: black !important; 
+   
+    
+}
+
+.contenedorDeCuentas {
+    display: flex;
+    justify-self: center;
+    
+    justify-content: space-around;
+
+
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.accounts {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    padding: 5px;
+    justify-content: center;
+   
+}
+
+
+.accountsHeader {
+    font-size: 200%;
+    font-family: 'Barlow Condensed', sans-serif;
+    color: aliceblue !important;
+    background-image: linear-gradient(85deg, #ffa6f9 0, #e08ceb 25%, #b46cd8 50%, #844fc5 75%, #533db9 100%);
+    margin-bottom: 0px;
+}
+
+.accountsAmount {
+    font-size: 200%;
+    font-family: 'Barlow Condensed', sans-serif;
+    color: black !important;
+
+}
+
+.accountsButton {
+    background-color: #e81763 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    color: aliceblue !important;
+    font-size: 200%!important;
+    margin: 5px;
+}
+
+.buttonOption {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    height: fit-content;
+    align-self: center;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    display: flex;
+    padding: 1%;
+    background-image: linear-gradient(85deg, #ffa6f9 0, #e08ceb 25%, #b46cd8 50%, #844fc5 75%, #533db9 100%);
+    justify-content: space-around;
+}
+
+.imageContainer {
+
+    width: 24%;
+}
+
+
+.madeBy {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 200%;
+}
+
+.tableContainer {
+    padding: 2%;
+    background-color: linear-gradient(85deg, #ffa6f9 0, #e08ceb 25%, #b46cd8 50%, #844fc5 75%, #533db9 100%) !important;
+    background-image: url("../visuals/fondo.png");
+    background-position: center;
+}
+
+.loansTableName {
+    font-size: 130%;
+    font-family: 'Barlow Condensed', sans-serif;
+    color: #844fc5 !important;
+}
+
+.loansTableItems {
+
+    font-family: 'Barlow Condensed', sans-serif;
+    color: #e81763 !important;
+
+}
+.loansTableItemsName{
+    font-family: 'Barlow Condensed', sans-serif;
+    color: black!important;
+    font-size: 250%;
+}
+.loansTableItemsAmount{
+    font-family: 'Barlow Condensed', sans-serif;
+    color: black!important;
+    font-size: 250%;
+    
+}
+
+.loansTableItemsPayments{
+    font-family: 'Barlow Condensed', sans-serif;
+    color: #e81763!important;
+    font-size: 250%;
+}
+.table {
+    border: solid  !important;
+    border-width: 2px!important;
+
+}
+
+.createAccount {
+    background-image: linear-gradient(85deg, #ffa6f9 0, #e08ceb 25%, #b46cd8 50%, #844fc5 75%, #533db9 100%);
+    font-family: 'Barlow Condensed', sans-serif !important;
+    color: aliceblue !important;
+    font-size: 200% !important;
+    width: fit-content;
+}
+
+.completeContainer{
+    display: flex;
+    height: fit-content;
+    padding: 5px;
+    border: solid;
+    border-width: 1px;
+    margin: 2%;
+    border-radius: 10px;
+    background-image:none
+}
+
+.auxContainer{
+    padding: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url("../visuals/fondo.png");
+    border: solid;
+    border-width:3px ;
+    border-color: #533db9;
+    border-radius: 0px;
+}
+
+.details{
+    font-size: 120%!important;
+}
+
+.accountContent{
+
+    flex-direction: column;
+}
+img{
+    width: 50px;
+    width: 25%;
+}
+
+@media screen and (max-width: 965px){
+header{
+    display: flex;
+    flex-direction: column;
+}
+
+    img{
+        width:30%;
+    }
+
+    .accountsAmount{
+        font-size: 120%;
+    }
+
+    .accountsHeader{
+        font-size:123%
+    }
+
+.accountsButton{
+    font-size: 90%!important;
+    width: fit-content;
+}
+    
+img{
+    display: flex;
+    align-self: center;
+    width:20%
+
+}
+.loansTableItemsName{
+    font-family: 'Barlow Condensed', sans-serif;
+    color: black!important;
+    font-size: initial;
+}
+.loansTableItemsAmount{
+    font-family: 'Barlow Condensed', sans-serif;
+    color: black!important;
+    font-size: initial;
+    
+}
+
+.loansTableItemsPayments{
+    font-family: 'Barlow Condensed', sans-serif;
+    color: #e81763!important;
+    font-size: initial;
+}
+
+.logoBankame{
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    width: 67%;
+    height: 100%;
+}
+#madeBy{
+    font-size: 50%;
+}
+
+.auxContainer{
+    padding: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+
+.completeContainer{
+    display: flex;
+    height: fit-content;
+    padding: 5px;
+    border: solid;
+    border-width: 2px;
+    margin: 2%;
+    border-radius: 5px;
+    background-image:none;
+    width: 100%;
+    justify-content: center;
+}
+.buttonOption{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+
+    
+}
+.accountsButton{
+    font-size: 100%!important;
+    height: 50%!important;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+
+}

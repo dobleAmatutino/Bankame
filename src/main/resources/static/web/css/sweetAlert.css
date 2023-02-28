@@ -1,0 +1,19 @@
+.swal2-confirm{
+    font-family: 'Barlow Condensed', sans-serif;
+    color: black!important;
+    border-width: 0px!important;
+    
+}
+
+.swal2-deny{
+    font-family: 'Barlow Condensed', sans-serif;
+    color: white!important;
+    
+}
+
+.swal2-title{
+    font-family: 'Barlow Condensed', sans-serif;
+    color: black!important;
+    
+    
+}

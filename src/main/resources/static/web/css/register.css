@@ -1,0 +1,91 @@
+.indexSaludo{
+
+    font-family: 'Barlow Condensed', sans-serif!important;
+    
+
+}
+
+.indexMain{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:30px
+   
+
+}
+.formContainer{
+
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-content: center;
+    background-image: url("../visuals/fondoDeRegister.png");
+    background-position: center;
+    border:solid;
+    border-width: 1px;
+}
+
+.infoForm{
+    display: flex;
+    justify-self: center;
+    height:fit-content;
+    width: 400px;
+    justify-content: space-around;
+    background: rgb(125,6,221);
+    background: radial-gradient(circle, rgba(125,6,221,1) 0%, rgba(182,17,241,1) 0%, rgba(186,5,173,1) 53%, rgba(255,0,116,1) 100%);
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+}
+
+.inputItems{
+
+    font-family: 'Barlow Condensed', sans-serif!important;
+    font-size: 30px;
+    color: aliceblue;
+
+}
+
+.registerClient{
+    padding: 10px;
+    text-decoration: none;
+    border: solid;
+    border-width: 0.5px;
+    border-color:#ffa6f9;
+    border-radius: 5px;
+    font-family: 'Barlow Condensed', sans-serif!important;
+    background-color: #ffa6f9!important;
+    color: aliceblue;
+    font-size: 20px;
+    width: fit-content;
+    height: fit-content;
+    transition: color 2s, background-image 2s,font-size 3s,width 2s,height 2s, transform 2s;
+}
+
+.registerClient:hover{
+    background-image:linear-gradient(85deg, aliceblue)!important;;
+    color: black!important;
+    font-size: 40px;
+}
+
+.inputFirstName,.inputLastName,.inputEmail,.inputPassword{
+    font-family: 'Barlow Condensed', sans-serif!important;
+    color: black;
+    font-size: 30px!important;
+}
+
+.imagenRegister,.imagenRegister2{
+    height: fit-content;
+   
+    transform:none;
+
+    transition: transform 3s;
+}
+
+.imagenRegister:hover,.imagenRegister2:hover{
+    
+   
+    transform: rotate(360deg);
+}
+
+

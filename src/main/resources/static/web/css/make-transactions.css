@@ -1,0 +1,127 @@
+.indexSaludo{
+
+    font-family: 'Barlow Condensed', sans-serif!important;
+    
+
+}
+
+.indexMain{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:30px
+   
+
+}
+
+.formContainer{
+        border-width: 1px,solid;
+        border-color: black;
+        display: flex;
+        justify-content: space-between;
+        justify-self: center;
+        
+        width: 100%;
+        padding: 10px;
+        background-image: url("../visuals/fondo.png");
+        background-position: center;
+        border-radius: 10px;
+        align-items: center;
+
+}
+
+.inputItems{
+
+    font-family: 'Barlow Condensed', sans-serif!important;
+    font-size: 30px;
+    color: aliceblue;
+
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+option,input{
+    font-family: 'Barlow Condensed', sans-serif!important;
+
+}
+
+select,textarea{
+    font-family: 'Barlow Condensed', sans-serif!important;
+    color: rgba(125,6,221,1)!important;
+}
+
+.button{
+
+    width: fit-content;
+    font-family: 'Barlow Condensed', sans-serif!important;
+    background-color: #ffa6f9;
+    font-size: 30px;
+    padding:10px;
+    text-decoration: none;
+    border-width:1px,solid;
+    border-color: #ffa6f9;
+    border-radius: 5px;
+    color: white;
+    
+    
+    transition: width 2s, font-size 2s, background-color 2s, transform 2s ;
+
+}
+
+.button:hover{
+
+    width:fit-content ;
+    font-size: 40px;
+    color:black ;
+
+}
+
+.infoForm{
+    display: flex;
+    justify-self: center;
+    height: fit-content;
+    width: 400px;
+    justify-content: space-around;
+    background: rgb(125,6,221);
+    background: radial-gradient(circle, rgba(125,6,221,1) 0%, rgba(182,17,241,1) 0%, rgba(186,5,173,1) 53%, rgba(255,0,116,1) 100%);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.imageTransaction{
+    height: fit-content;
+    width:100%;
+    padding: 30px;
+    background:none;
+    border-radius: 100%;
+}
+@media screen and (max-width: 965px){
+    .imageTransaction{
+        display: none;
+    }
+
+    .formContainer{
+        width:100% ;
+        padding: 30px;
+       
+    }
+
+    .indexMain{
+        padding: 0px;
+    }
+
+    .inputItems{
+        font-size: 19px;
+    }
+
+    .video{
+        font-size: 30px;
+        width: 30px;
+    }
+
+}

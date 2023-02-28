@@ -1,0 +1,10 @@
+.note {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    text-overflow: ellipsis;
+    padding: 6%;
+    font-size: 150%;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 229, 1) 17%, rgba(169, 19, 242, 1) 100%);
+    color: greenyellow;
+    margin-bottom: 0px;
+}

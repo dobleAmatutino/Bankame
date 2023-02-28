@@ -1,0 +1,89 @@
+.indexSaludo{
+
+    font-family: 'Barlow Condensed', sans-serif!important;
+    
+
+}
+
+.indexMain{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+   
+
+}
+
+.formContainer{
+    display: flex;
+    justify-self: center;
+    height:fit-content;
+    width: 400px;
+    justify-content: space-around;
+    background: rgb(125,6,221);
+    background: radial-gradient(circle, rgba(125,6,221,1) 0%, rgba(182,17,241,1) 0%, rgba(186,5,173,1) 53%, rgba(255,0,116,1) 100%);
+    border-radius: 10px;
+    padding: 30px;
+    flex-direction: column;
+}
+
+.inputItems{
+
+    font-family: 'Barlow Condensed', sans-serif!important;
+    font-size: 30px;
+    color: aliceblue;
+
+}
+
+.containerForm{
+    padding:30px;
+    width: 100%;
+    background-image: url("../visuals/fondoCards.png");
+    background-image: center;
+}
+
+.requestCard{
+    display: flex;
+    font-family: 'Barlow Condensed', sans-serif!important;
+    font-size: 30px;
+    color: aliceblue;
+    background-image: linear-gradient(85deg, #ffa6f9 0, #e08ceb 25%, #b46cd8 50%, #844fc5 75%, #533db9 100%);
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 0%;
+}
+
+option,select{
+    display: flex;
+    font-family: 'Barlow Condensed', sans-serif!important;
+    font-size: 30px;
+    color:#533db9
+}
+
+.createCard{
+    display: flex;
+    justify-self: center;
+}
+@media screen and (max-width: 965px) {
+    .form{
+        display: flex;
+        flex-direction: column ;
+        align-items: center;
+    }
+
+    option,select{
+        display: flex;
+        font-family: 'Barlow Condensed', sans-serif!important;
+        font-size: 100%;
+        color:#533db9;
+        width:100%
+    }
+    
+    .inputItems{
+
+        font-family: 'Barlow Condensed', sans-serif!important;
+        font-size: 120%;
+        color: aliceblue;
+    
+    }
+}

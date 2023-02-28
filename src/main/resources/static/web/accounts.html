@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts</title>
+    <link rel="stylesheet" href="./css/accounts.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Raleway:wght@900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+<body>
+    <div id="app">
+        <header>
+            <img class="logoBankame" src="./visuals/logoHomeBankame-ajustado.png" alt="">
+            <div class="buttonOption">
+                <button type="button" @click.prevent="logout" href="index.html"
+                    class="accountsButton btn btn-danger animate__animated animate__bounceInLeft text-center">LOGOUT</button>
+                <a type="button" href="./accounts.html"
+                    class="accountsButton btn btn-danger animate__animated animate__bounceInLeft">ACCOUNTS
+                </a>
+
+                <a type="button" href="./loans-information.html" class="accountsButton btn btn-danger animate__animated animate__bounceInLeft">LOANS</a>
+
+                <a type="button" href="./make-transactions.html"
+                    class="accountsButton btn btn-danger animate__animated animate__bounceInLeft">TRANSACTION</a>
+
+                <a type="button" href="./cards.html" class="accountsButton btn btn-danger animate__animated animate__bounceInLeft">
+                    CARDS</a>
+            </div>
+        </header>
+        <main>
+
+            <div class="saludoAlCliente">
+                <h1 class="text-center text-decoration-none ">HOLA {{capitalLetter(client.firstName)}}
+                    {{capitalLetter(client.lastName)}}
+                </h1>
+
+                <h2 class="accountsHeader text-center ">Usted tiene {{accounts.length}} cuentas</h2>
+            </div>
+
+
+
+
+
+            <div class="contenedorDeCuentas">
+
+                <button v-if="accounts.length<3" @click.prevent="createAccount" type="button"
+                    class="createAccount btn btn-danger animate__animated animate__bounceInLeft d-flex align-self-center text-center justify-self-center">create
+                    a new account
+                </button>
+                <div class="auxContainer d-flex justify-content-around justify-self-center ">
+                    <div class="completeContainer" v-for="account in accounts">
+                        <img src="./visuals/imagenAccounts1-removebg-preview-removebg-preview.png" alt="">
+                        <div class="accounts card text-center animate__animated        animate__bounceInLeft">
+
+                            <div class="accountsHeader card-header">
+                                {{account.number}}
+                            </div>
+                            <div class="accountContent card-body d-flex justify-content-around align-items-center">
+                                <h5 class="accountsAmount card-title">{{formatBalance(account.balance)}}</h5>
+                                <a type="button" :href="'http://localhost:8080/web/account.html?id='+account.id"
+                                    class="accountsButton d-flex justify-self-center justify-content-center details btn btn-danger">MOVEMENTS</a>
+                            </div>
+
+                        </div>
+                        <img src="./visuals/imagenAccounts2-removebg-preview-removebg-preview.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="accountsHeader saludoAlCliente">
+                <h1 class="text-center">Tienes {{loans.length}} prestamos adquiridos</h1>
+            </div>
+            <div class="tableContainer" v-if="loans.length>0">
+                <a type="button" href="./get-loan.html"
+                    class="accountsButton btn btn-danger animate__animated animate__bounceInLeft  text-center ">GET A LOAN
+                </a>
+                <table class="table table-bordered border-primary">
+                    <thead>
+                        <th class="loansTableName text-center">NAME</th>
+                        <th class="loansTableName text-center ">AMOUNT</th>
+                        <th class="loansTableName text-center">PAYMENTS</th>
+                    </thead>
+                    <tbody v-for="loan in loans">
+                        <td class="loansTableItemsName text-center text-dark">{{loan.clientLoanName}}</td>
+                        <td class="loansTableItemsAmount text-center">{{formatBalance(loan.clientLoanAmount)}}</td>
+                        <td class="loansTableItemsPayments text-center">{{loan.clientLoanPayments}}</td>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tableContainer  d-flex text-center  justify-content-center" v-else-if="loans.length===0">
+                <video autoplay muted loop>
+                    <source src="./visuals/torre de dinero.mp4" type="video/mp4">
+                </video>
+                <h1 class="saludoAlCliente fs-1 text-center">You have not ask for a loan </h1>
+                <video autoplay muted loop>
+                    <source src="./visuals/torre de dinero.mp4" type="video/mp4">
+                </video>
+            </div>
+        </main>
+
+        <footer>
+
+            <img class="imageContainer logoBankame align-self-center" src="./visuals/logoHomeBankame-ajustado.png" alt="">
+
+            <div id="madeBy">
+                <h2 class="madeBy text-center text-light ">Hecho por Aaron Mujica</h2>
+                <h2 class="madeBy text-center text-light ">Diciembre 2022</h2>
+            </div>
+
+        </footer>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./scripts/accounts.js"></script>
+</body>
+
+</html>

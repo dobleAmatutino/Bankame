@@ -1,0 +1,425 @@
+.cardsTitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 200%;
+}
+
+.cardsContainer {
+    padding: 2%;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    background-image: url("../visuals/fondoCards.png");
+    background-position: center;
+
+}
+
+.creditCardsTitle,
+.debitCardsTitle {
+    font-family: 'Barlow Condensed', sans-serif;
+    color: aliceblue;
+    font-size: 200%;
+    background-image: linear-gradient(85deg, #ffa6f9 0, #e08ceb 25%, #b46cd8 50%, #844fc5 75%, #533db9 100%);
+    margin-bottom: 0px;
+}
+
+.card {
+    position: absolute;
+    width: 320px;
+    height: 190px;
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+    perspective: 600px;
+    background-image: url("../visuals/fondoCards.png");
+    background-position: center;
+    border: solid !important;
+    border-width: 0px !important;
+    border-color: black !important;
+    margin-bottom: 20px;
+}
+
+.card__part {
+    box-shadow: 1px 1px #aaa3a3;
+    top: 0;
+    /* position: absolute; */
+
+    left: 0;
+
+    width: 320px;
+    height: 190px;
+    background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, #fd696b, #fa616e, #f65871, #f15075, #ec4879);
+    /*linear-gradient(to right bottom, #fd8369, #fc7870, #f96e78, #f56581, #ee5d8a)*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+
+    -webkit-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -moz-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -ms-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -o-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+.card__front {
+    padding: 18px;
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+}
+
+.card__back {
+    position: absolute;
+    padding: 18px 0;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+
+}
+
+.card__black-line {
+    margin-top: 5px;
+    height: 38px;
+    background-color: #303030;
+}
+
+.card__logo {
+    height: 16px;
+}
+
+.card__front-logo {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+}
+
+.card__square {
+    border-radius: 5px;
+    height: 30px;
+}
+
+.card_numer {
+    display: block;
+    width: 100%;
+    word-spacing: 4px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.card__space-75 {
+    width: 75%;
+    float: left;
+}
+
+.card__space-25 {
+    width: 25%;
+    float: left;
+}
+
+.card__label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+}
+
+.card__info {
+    margin-bottom: 0;
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 18px;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card__back-content {
+    padding: 15px 15px 0;
+}
+
+.card__secret--last {
+    color: #303030;
+    text-align: right;
+    margin: 0;
+    font-size: 14px;
+}
+
+.card__secret {
+    padding: 5px 12px;
+    background-color: #fff;
+    position: relative;
+}
+
+.card__secret:before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    height: calc(100% + 6px);
+    width: calc(100% - 42px);
+    border-radius: 4px;
+    background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
+}
+
+.card__back-logo {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.card__back-square {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.card:hover .card__front {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+
+}
+
+.card:hover .card__back {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+}
+
+
+.GOLD {
+    background: rgb(221, 143, 6);
+    background: linear-gradient(180deg, rgba(221, 143, 6, 1) 0%, rgba(241, 171, 17, 1) 9%, rgba(186, 68, 5, 1) 53%, rgba(255, 239, 0, 1) 100%);
+}
+
+.SILVER {
+    background: rgb(86, 101, 101);
+    background: linear-gradient(180deg, rgba(86, 101, 101, 0.9472163865546218) 0%, rgba(203, 213, 214, 1) 40%, rgba(214, 214, 214, 1) 81%, rgba(251, 238, 250, 1) 90%);
+}
+
+.TITANIUM {
+    background: rgb(42, 43, 43);
+    background: linear-gradient(0deg, rgba(42, 43, 43, 0.9472163865546218) 0%, rgba(82, 81, 79, 1) 17%, rgba(78, 78, 78, 1) 40%, rgba(7, 8, 8, 1) 54%, rgba(126, 129, 129, 1) 65%, rgba(18, 16, 16, 1) 80%, rgba(0, 0, 0, 1) 89%);
+}
+
+.haventCards{
+    font-family: 'Barlow Condensed', sans-serif;
+    color: white;
+    background: linear-gradient(85deg, #ffa6f9 0, #e08ceb 25%, #b46cd8 50%, #844fc5 75%, #533db9 100%);;
+    border: solid;
+    border-width: 1px;
+    border-color: #533db9;;
+    border-radius: 5px;
+    font-size: 200%;
+}
+
+@media screen and (max-width: 965px) {
+    .buttonOptionResponsive {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 1%;
+        align-content: space-around;
+        width: 100%;
+        padding: 3%;
+    }
+
+    .cardsContainer {
+        width: 100%;
+        display: flex;
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+
+    .card__part {
+        box-shadow: 1px 1px #aaa3a3;
+        top: 0;
+        /* position: absolute; */
+
+        left: 0;
+
+        width: 320px;
+        height: 150px;
+        background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, #fd696b, #fa616e, #f65871, #f15075, #ec4879);
+        /*linear-gradient(to right bottom, #fd8369, #fc7870, #f96e78, #f56581, #ee5d8a)*/
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 8px;
+
+        -webkit-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        -moz-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        -ms-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        -o-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+    }
+
+    .card__front {
+        width: 100%;
+        padding: 18px;
+        -webkit-transform: rotateY(0);
+        -moz-transform: rotateY(0);
+    }
+
+    .card__back {
+        width: 100%;
+        position: absolute;
+        padding: 18px 0;
+        -webkit-transform: rotateY(-180deg);
+        -moz-transform: rotateY(-180deg);
+    }
+
+    .card__black-line {
+        margin-top: 5px;
+        height: 36px;
+        background-color: #303030;
+    }
+
+    .card__logo {
+        height: 16px;
+    }
+
+    .card__front-logo {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+    }
+
+    .card__square {
+        border-radius: 5px;
+        width: 40%;
+    }
+
+    .card_numer {
+        display: block;
+        width: 100%;
+        word-spacing: 4px;
+        font-size: 101%;
+        letter-spacing: 2px;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 0px;
+        margin-top: 20px;
+    }
+
+    .card__space-75 {
+        width: 75%;
+        float: left;
+    }
+
+    .card__space-25 {
+        width: 25%;
+        float: left;
+    }
+
+    .card__label {
+        font-size: 10px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+        letter-spacing: 1px;
+    }
+
+    .card__info {
+        margin-bottom: 0;
+        margin-top: 5px;
+        font-size: 16px;
+        line-height: 18px;
+        color: #fff;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .card__back-content {
+        padding: 15px 15px 0;
+    }
+
+    .card__secret--last {
+        color: #303030;
+        text-align: right;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .card__secret {
+        padding: 5px 12px;
+        background-color: #fff;
+        position: relative;
+    }
+
+    .card__secret:before {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        height: calc(100% + 6px);
+        width: calc(100% - 42px);
+        border-radius: 4px;
+        background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
+    }
+
+    .card__back-logo {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .card__back-square {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+    }
+
+    .card:hover .card__front {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+
+    }
+
+    .card:hover .card__back {
+        -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+    }
+
+    .haventCards{
+        font-family: 'Barlow Condensed', sans-serif;
+        color: white;
+        background: linear-gradient(85deg, #ffa6f9 0, #e08ceb 25%, #b46cd8 50%, #844fc5 75%, #533db9 100%);;
+        border: solid;
+        border-width: 1px;
+        border-color: #533db9;;
+        border-radius: 5px;
+        font-size: 30px;
+    }
+
+
+    .GOLD {
+        background: rgb(221, 143, 6);
+        background: linear-gradient(180deg, rgba(221, 143, 6, 1) 0%, rgba(241, 171, 17, 1) 9%, rgba(186, 68, 5, 1) 53%, rgba(255, 239, 0, 1) 100%);
+    }
+
+    .SILVER {
+        background: rgb(86, 101, 101);
+        background: linear-gradient(180deg, rgba(86, 101, 101, 0.9472163865546218) 0%, rgba(203, 213, 214, 1) 40%, rgba(214, 214, 214, 1) 81%, rgba(251, 238, 250, 1) 90%);
+    }
+
+    .TITANIUM {
+        background: rgb(42, 43, 43);
+        background: linear-gradient(0deg, rgba(42, 43, 43, 0.9472163865546218) 0%, rgba(82, 81, 79, 1) 17%, rgba(78, 78, 78, 1) 40%, rgba(7, 8, 8, 1) 54%, rgba(126, 129, 129, 1) 65%, rgba(18, 16, 16, 1) 80%, rgba(0, 0, 0, 1) 89%);
+    }
+
+    .creditCardsTitle,
+    .debitCardsTitle {
+        margin-bottom: 0px !important;
+    }
+
+    .logoHeaderBankame {
+        width: 200px;
+    }
+}

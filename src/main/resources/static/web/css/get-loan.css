@@ -1,0 +1,127 @@
+.indexSaludo{
+
+    font-family: 'Barlow Condensed', sans-serif!important;
+    
+
+}
+
+.indexMain{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:30px
+   
+
+}
+
+
+.getLoanForm{
+    display: flex;
+    justify-content: center;
+    background-image: url("../visuals/fondo.png");
+    background-position: center;
+    padding: 10%;
+    border-radius: 5px;
+    width: 100%;
+}
+.formContainer{
+    display: flex;
+    justify-self: center;
+    height:fit-content;
+    width: 400px;
+    justify-content: space-around;
+    background: rgb(125,6,221);
+    background: radial-gradient(circle, rgba(125,6,221,1) 0%, rgba(182,17,241,1) 0%, rgba(186,5,173,1) 53%, rgba(255,0,116,1) 100%);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.inputItems{
+
+    font-family: 'Barlow Condensed', sans-serif!important;
+    font-size: 120%;
+    color: aliceblue;
+
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+.selectGetLoan,.optionGetLoan{
+    font-family: 'Barlow Condensed', sans-serif!important;
+    font-size: 200%;
+    color:blueviolet;
+}
+
+.inputGetLoan{
+    font-family: 'Barlow Condensed', sans-serif!important;
+    font-size: 100%px;
+    color:black;
+}
+.buton{
+    height: fit-content!important;
+}
+
+
+.imagenBakame{
+    width:30%;
+}
+@media screen and (max-width: 965px){
+
+    .indexMain{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding:0px
+       
+    
+    }
+
+    .selectGetLoan,.optionGetLoan{
+        font-family: 'Barlow Condensed', sans-serif!important;
+        font-size: 100%;
+        color:blueviolet;
+    }
+    
+
+    .buton{
+        height: fit-content!important;
+        display: flex!important;
+        justify-self: start;
+    }
+
+    .inputGetLoan{
+        font-family: 'Barlow Condensed', sans-serif!important;
+        font-size: 100%;
+        color:black;
+    }
+
+    .formContainer{
+        display: flex;
+        justify-self: center;
+        height:fit-content;
+        width: 100%;
+        justify-content: space-around;
+        background: rgb(125,6,221);
+        background: radial-gradient(circle, rgba(125,6,221,1) 0%, rgba(182,17,241,1) 0%, rgba(186,5,173,1) 53%, rgba(255,0,116,1) 100%);
+        border-radius: 10px;
+        padding: 30px;
+    }
+    .getLoanForm{
+        display: flex;
+        justify-content: center;
+        background-image: url("../visuals/fondo.png");
+        background-position: center;
+        padding: 10%;
+        border-radius: 5px;
+        width: 100%;
+    }
+    
+    .imagenBakame{
+        width:67%!important;
+    }
+}
