@@ -139,7 +139,7 @@ public class LoansController {
 
 
         if (customerLoans.size()>=1){
-            return new ResponseEntity<>("you had completed the",HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("you had completed the limit for this loan",HttpStatus.FORBIDDEN);
         }
 
 

@@ -33,12 +33,12 @@ const app = Vue.createApp({
                 Swal.fire({icon:'warning',
                     title:response.data,
                     confirmButtonColor:" #dc143c",
-                confirmButtonText:"confirmar",})
+                confirmButtonText:"accept",})
             .then(()=> window.location.href="http://localhost:8080/web/index.html")})
             .catch(error =>{Swal.fire({icon:'warning',
                 title:error.data,
                 confirmButtonColor:" #dc143c",
-            confirmButtonText:"entendido",})} )
+            confirmButtonText:"ok",})} )
         },
 
         capitalLetter(string){

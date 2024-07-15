@@ -72,7 +72,7 @@ public class ClientController {
         clientRepository.save(newClient);
         accountRepository.save(newAccountregistered);
 
-        return new ResponseEntity<>("BIENVENIDO A BANCA "+ newClient.getFirstName() ,HttpStatus.CREATED);
+        return new ResponseEntity<>("WELCOME TO BANKAME "+ newClient.getFirstName() ,HttpStatus.CREATED);
 
     }
     public int getRandomNumber(int min, int max) {

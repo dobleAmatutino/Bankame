@@ -1,5 +1,4 @@
 package com.example.homebankingAaronSolo.configurations;
-
 import com.example.homebankingAaronSolo.models.Client;
 import com.example.homebankingAaronSolo.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @Configuration
 public class WebAuthentications extends GlobalAuthenticationConfigurerAdapter {
-
+    @Autowired
+    MessageLog messageLog;
     @Autowired
 
     ClientRepository clientRepository;
@@ -30,11 +30,11 @@ public class WebAuthentications extends GlobalAuthenticationConfigurerAdapter {
             Client client = clientRepository.findByEmail(inputName);
 
             if (client != null && (client.getPassword().isEmpty()||client.getPassword()!= clientRepository.findByEmail(inputName).getPassword())){
-                throw new UsernameNotFoundException("Invalid credentials");
+                throw new UsernameNotFoundException(messageLog.invalidCredentials);
 
             }
             if(client==null){
-                        throw new UsernameNotFoundException("Invalid credentials");
+                        throw new UsernameNotFoundException(messageLog.invalidCredentials);
             }
 
             if (client != null) {

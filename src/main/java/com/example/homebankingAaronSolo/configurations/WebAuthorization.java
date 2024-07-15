@@ -1,5 +1,6 @@
 package com.example.homebankingAaronSolo.configurations;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,6 +18,8 @@ import javax.servlet.http.HttpSession;
 
 public class WebAuthorization extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    MessageLog messageLog;
     private void clearAuthenticationAttributes(HttpServletRequest request) {
 
         HttpSession session = request.getSession(false);
@@ -79,18 +82,18 @@ public class WebAuthorization extends WebSecurityConfigurerAdapter {
 
         http.formLogin().successHandler((req, res, auth) -> {
             clearAuthenticationAttributes(req);
-            res.getWriter().write("BIENVENIDO");
+            res.getWriter().write(messageLog.successCredentials);
         });
 
         // if login fails, just send an authentication failure response
 
         http.formLogin().failureHandler((req, res, exc) -> {
             res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            res.getWriter().write("invalid credentials");
+            res.getWriter().write(messageLog.invalidCredentials);
         });
         // if logout is successful, just send a success response
 
-        http.logout().logoutSuccessHandler((req,res,auth)->{res.getWriter().write("¿SEGURO QUE QUIERES CERRAR SESION?");});
+        http.logout().logoutSuccessHandler((req,res,auth)->{res.getWriter().write(messageLog.logout);});
 
 
 

@@ -49,7 +49,7 @@
                 <div class="formContainer">
                     <form class="form">
                         <div class="btn-group d-flex flex-column justify-self-center">
-                            <label for="FIRSTNAME" class="inputItems form-label text-center">What type of loan do you want
+                            <label  class="inputItems form-label text-center">What type of loan do you want
                                 to apply for?</label>
                             <select v-model="id" class="selectGetLoan text-center form-select form-select-lg mb-3"
                                 aria-label=".form-select-lg example">
@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="btn-group d-flex flex-column justify-content-around align-content-centery">
-                            <label for="FIRSTNAME" class="inputItems text-center form-label">Loan amount</label>
+                            <label  class="inputItems text-center form-label">Loan amount</label>
                             <div class="input-group mb-3">
                                 <span class="inputGetLoan input-group-text">max {{loans[id-1].maxAmount}} $</span>
                                 <input v-model="amount" type="number" class="inputGetLoan text-center form-control"
@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="btn-group d-flex flex-column justify-content-around align-content-center">
-                            <label for="FIRSTNAME" class="inputItems form-label text-center">Enter the destination account
+                            <label  class="inputItems form-label text-center">Enter the destination account
                                 number</label>
                             <select v-model="destinyAccount"
                                 class="selectGetLoan text-center form-select form-select-lg mb-3"
