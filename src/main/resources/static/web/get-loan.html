@@ -29,8 +29,7 @@
                     class="accountsButton btn btn-danger animate__animated animate__bounceInLeft">LOGOUT</button>
 
                 <a type="button" href="./accounts.html"
-                    class="accountsButton btn btn-danger animate__animated animate__bounceInLeft">ACCOUNTS
-                </a>
+                    class="accountsButton btn btn-danger animate__animated animate__bounceInLeft">ACCOUNTS</a>
 
                 <a type="button" class="accountsButton btn btn-danger animate__animated animate__bounceInLeft">LOANS</a>
 
@@ -38,8 +37,7 @@
                     class="accountsButton btn btn-danger animate__animated animate__bounceInLeft">TRANSACTION</a>
 
                 <a type="button" href="./cards.html"
-                    class="accountsButton btn btn-danger animate__animated animate__bounceInLeft">
-                    CARDS</a>
+                    class="accountsButton btn btn-danger animate__animated animate__bounceInLeft">CARDS</a>
             </div>
         </header>
         <main class="indexMain d-flex ">
@@ -49,18 +47,14 @@
 
             <div class="getLoanForm">
                 <div class="formContainer">
-
                     <form class="form">
-
                         <div class="btn-group d-flex flex-column justify-self-center">
                             <label for="FIRSTNAME" class="inputItems form-label text-center">What type of loan do you want
-                                to apply
-                                for?</label>
+                                to apply for?</label>
                             <select v-model="id" class="selectGetLoan text-center form-select form-select-lg mb-3"
                                 aria-label=".form-select-lg example">
                                 <option v-for="loan in loans" class="optionGetLoan text-center" :value="loan.id">
                                     {{loan.name}}</option>
-
                             </select>
                         </div>
 
@@ -74,14 +68,13 @@
                         </div>
 
                         <div class="btn-group d-flex flex-column justify-content-around align-content-center">
-                            <label for="destinyAccount" class="inputItems form-label text-center">Select the destination account</label>
+                            <label for="destinyAccount" class="inputItems form-label text-center">PAYMENTS</label>
                             <select v-model="payments" class="selectGetLoan form-select text-center form-select-lg mb-3"
                                 aria-label=".form-select-lg example">
                                 <option class="optionGetLoan text-center" v-for="payment in loans[id-1].payments"
                                     :value="payment">{{payment}}</option>
                             </select>
                         </div>
-
 
                         <div class="btn-group d-flex flex-column justify-content-around align-content-center">
                             <label for="FIRSTNAME" class="inputItems form-label text-center">Enter the destination account
@@ -94,25 +87,21 @@
                             </select>
                         </div>
 
-
                         <a type="button" @click.prevent="getClientLoan"
                             class="accountsButton buton btn btn-danger animate__animated animate__bounceInLeft text-center">Make
-                            a transaction
-                        </a>
+                            a transaction</a>
                     </form>
                     {{loan}}
                 </div>
             </div>
         </main>
         <footer>
-            
-                <img  class="logoBankame d-flex align-self-center"  src="./visuals/logoHomeBankame-ajustado.png" alt="">
-            
+            <img class="logoBankame d-flex align-self-center" src="./visuals/logoHomeBankame-ajustado.png" alt="">
             <div>
-                <h2 class="madeBy text-center text-light ">Hecho por Aaron Mujica</h2>
+                <h2 class="madeBy text-center text-light">Hecho por Aaron Mujica</h2>
             </div>
             <div>
-                <h2 class="madeBy text-center text-light ">Diciembre 2022</h2>
+                <h2 class="madeBy text-center text-light">Diciembre 2022</h2>
             </div>
         </footer>
     </div>
@@ -121,10 +110,8 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <!-- <script src="./scripts/accounts.js"></script> -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./scripts/get-loan.js"></script>
-
 </body>
 
 </html>

@@ -6,7 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.WebAttributes;
-import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,35 +30,30 @@ public class WebAuthorization extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-
     protected void configure(HttpSecurity http) throws Exception {
-
         http.authorizeRequests()
-
                 .antMatchers("/web/index.html").permitAll()
                 .antMatchers("/manager").hasAuthority("ADMIN")
                 .antMatchers("/rest/**").hasAuthority("ADMIN")
-                .antMatchers(HttpMethod.POST,"/api/newLoan").hasAuthority("ADMIN")
-
+                .antMatchers(HttpMethod.POST, "/api/newLoan").hasAuthority("ADMIN")
                 .antMatchers(HttpMethod.POST, "/api/clients").permitAll()
-                .antMatchers(HttpMethod.POST,"/api/login").hasAuthority("CLIENT")
-                .antMatchers(HttpMethod.POST,"/api/clients/current/cards").hasAuthority("CLIENT")
-                .antMatchers(HttpMethod.POST,"/api/logout").hasAuthority("CLIENT")
-                .antMatchers(HttpMethod.POST,"/api/transactions").hasAuthority("CLIENT")
-                .antMatchers(HttpMethod.POST,"/api/loans").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.POST, "/api/login").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.POST, "/api/clients/current/cards").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.POST, "/api/logout").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.POST, "/api/logout").hasAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST, "/api/transactions").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.POST, "/api/loans").hasAuthority("CLIENT")
+                .antMatchers(HttpMethod.POST, "/web/get-loan.html").hasAuthority("CLIENT")
 
                 .antMatchers("/web/get-loan.html").hasAuthority("CLIENT")
                 .antMatchers("/web/make-transactions.html").hasAuthority("CLIENT")
                 .antMatchers("/web/created-cards.html").hasAuthority("CLIENT")
                 .antMatchers("/web/accounts.html").hasAuthority("CLIENT")
                 .antMatchers("/web/account.html").hasAuthority("CLIENT")
-                .antMatchers("/web/cards.html").hasAuthority("CLIENT");
-
-
-        http.formLogin()
-
+                .antMatchers("/web/cards.html").hasAuthority("CLIENT")
+                .and()
+                .formLogin()
                 .usernameParameter("email")
-
                 .passwordParameter("password")
 
                 .loginPage("/api/login");
@@ -82,15 +77,20 @@ public class WebAuthorization extends WebSecurityConfigurerAdapter {
 
         // if login is successful, just clear the flags asking for authentication
 
-        http.formLogin().successHandler((req, res, auth) -> clearAuthenticationAttributes(req));
+        http.formLogin().successHandler((req, res, auth) -> {
+            clearAuthenticationAttributes(req);
+            res.getWriter().write("BIENVENIDO");
+        });
 
         // if login fails, just send an authentication failure response
 
-        http.formLogin().failureHandler((req, res, exc) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED));
-
+        http.formLogin().failureHandler((req, res, exc) -> {
+            res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            res.getWriter().write("invalid credentials");
+        });
         // if logout is successful, just send a success response
 
-        http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler());
+        http.logout().logoutSuccessHandler((req,res,auth)->{res.getWriter().write("¿SEGURO QUE QUIERES CERRAR SESION?");});
 
 
 

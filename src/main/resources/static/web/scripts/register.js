@@ -35,9 +35,9 @@ const app=Vue.createApp({
             
             }
             else{
-                b = this.email.toLowerCase()
+               return   b = this.email.toLowerCase()
             }
-            return b
+           
             
         },
 

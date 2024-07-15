@@ -29,7 +29,16 @@ const app = Vue.createApp({
           },
 
         logout(){
-            axios.post("/api/logout").then(response => window.location.href = "http://localhost:8080/web/index.html")
+            axios.post("/api/logout").then(response =>{
+                Swal.fire({icon:'warning',
+                    title:response.data,
+                    confirmButtonColor:" #dc143c",
+                confirmButtonText:"confirmar",})
+            .then(()=> window.location.href="http://localhost:8080/web/index.html")})
+            .catch(error =>{Swal.fire({icon:'warning',
+                title:error.data,
+                confirmButtonColor:" #dc143c",
+            confirmButtonText:"entendido",})} )
         },
 
         capitalLetter(string){

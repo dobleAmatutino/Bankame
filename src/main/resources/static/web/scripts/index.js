@@ -17,12 +17,13 @@ const app=Vue.createApp({
             
             axios.post("/api/login" ,`email=${this.email}&password=${this.password}`)
                 .then(response => window.location.href = "http://localhost:8080/web/accounts.html")
-                .catch(function(error){
+                .catch(error => {
                         Swal.fire({icon:'error',
-                            title:"Credentials error",
+                            title:error.response.data,
                             confirmButtonColor:" #dc143c",
                         confirmButtonText:"Correct"})}
-                        )
+                       
+                        ); 
         },
         
         logInAdmin(){
@@ -30,9 +31,9 @@ const app=Vue.createApp({
             
             axios.post("/api/login" ,`email=${this.email}&password=${this.password}`)
                 .then(response => window.location.href = "http://localhost:8080/manager.html")  
-                .catch(function(error){
+                .catch(error=>{
                     Swal.fire({icon:'error',
-                        title:"Credentials error",
+                        title:error.response.data,
                         confirmButtonColor:" #dc143c",
                     confirmButtonText:"Correct"})}
                     )

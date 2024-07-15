@@ -3,14 +3,15 @@ const app = Vue.createApp({
 
     data() {
         return {
-            name: "",
-            lastName: "",
-            email: "",
+            firstName:"",
+            lastName:"",
+            email:"",
             data:"",
             client:[],
             loanName:"",
             loanPayments:[],
-            loanMaxAmount:""
+            loanMaxAmount:"",
+            password:""
         }
     },
     created() {
@@ -38,18 +39,10 @@ const app = Vue.createApp({
         },
 
         addClient(){
-            axios.post('/clients',{
-                'firstName':this.name,'lastName':this.lastName,'email':this.email
-            })
-            .then(()=>{
-                window.location.reload()
-                console.log('esta funcionando vas bien')
-            })
-              .catch(function (error) {
-                console.log(error);
-              });
-
-        },
+            axios.post("/api/clients" ,`firstName=${this.firstName}&lastName=${this.lastName}&email=${this.email}&password=${this.password}`)
+                .then(response => window.location.href = "http://localhost:8080/manager.html")  
+                .catch((error) => {console.log(error)})
+            },
         logout(){
             axios.post("/api/logout").then(response => window.location.href = "http://localhost:8080/web/index.html")
         },

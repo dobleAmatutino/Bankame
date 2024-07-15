@@ -29,6 +29,14 @@ public class WebAuthentications extends GlobalAuthenticationConfigurerAdapter {
 
             Client client = clientRepository.findByEmail(inputName);
 
+            if (client != null && (client.getPassword().isEmpty()||client.getPassword()!= clientRepository.findByEmail(inputName).getPassword())){
+                throw new UsernameNotFoundException("Invalid credentials");
+
+            }
+            if(client==null){
+                        throw new UsernameNotFoundException("Invalid credentials");
+            }
+
             if (client != null) {
 
                 if (client.getEmail().contains("admin")) {
@@ -36,10 +44,13 @@ public class WebAuthentications extends GlobalAuthenticationConfigurerAdapter {
                     return new User(client.getEmail(), client.getPassword(),
 
                             AuthorityUtils.createAuthorityList("ADMIN"));
-                } else {
+                }
+                else {
                     return new User(client.getEmail(), client.getPassword(),
 
                             AuthorityUtils.createAuthorityList("CLIENT"));
+
+
 
                 }
             } else {

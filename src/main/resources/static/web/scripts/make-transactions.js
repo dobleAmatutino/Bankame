@@ -16,6 +16,9 @@ const app = Vue.createApp({
         this.loadData()
     },
     methods: {
+        logout(){
+            axios.post("/api/logout").then(response => window.location.href = "http://localhost:8080/web/index.html")
+        },
 
         loadData() {
             axios.get("/clients/current")

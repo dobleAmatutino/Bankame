@@ -17,7 +17,7 @@
 
             <div class="d-flex justify-content-around">
                 <h1>Client manager</h1>
-                <button type="button" @click.prevent="logout" href="index.html"
+                <button type="button" @click.prevent="logout" href=""
                     class="accountsButton btn btn-danger animate__animated animate__bounceInLeft text-center">LOGOUT</button>
                 <a class="button btn btn-dark" href="./manager-loan.html"  type="submit">ADMIN LOAN</a>
             </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="input-group mb-3 d-flex ">
                         <label for="name">Client name</label>
-                        <input v-model="name" type="text" id="name"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input v-model="firstName" type="text" id="name"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                     <div class="input-group mb-3 d-flex flex-column ">
                         <label for="lastName">Client lastname</label>
@@ -39,6 +39,10 @@
                     <div class="input-group mb-3 d-flex ">
                         <label for="email">Client email</label>
                         <input type="email" v-model="email" id="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3 d-flex ">
+                        <label for="email">Client password</label>
+                        <input type="email" v-model="password" id="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                     <button class="button btn btn-dark" @click="addClient" type="submit">Button</button>
                     <div>
