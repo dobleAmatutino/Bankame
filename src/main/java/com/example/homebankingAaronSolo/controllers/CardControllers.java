@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
@@ -44,8 +45,21 @@ public class CardControllers {
     public ResponseEntity<Object> createAcard( @RequestParam CardType type,
                                               @RequestParam CardColor color, Authentication authentication) {
         Client currentClient = clientRepository.findByEmail(authentication.getName());
+        System.out.println("All cards: " + currentClient.getCards());
 
+        // Filtrar tarjetas de débito
+        Set<Card> debitCards = currentClient.getCards().stream()
+                .filter(card -> card.getType().equals(CardType.DEBIT))
+                .collect(Collectors.toSet());
 
+        // Filtrar tarjetas de crédito
+        Set<Card> creditCards = currentClient.getCards().stream()
+                .filter(card -> card.getType().equals(CardType.CREDIT))
+                .collect(Collectors.toSet());
+
+        // Imprimir resultados para depuración
+        System.out.println("Debit cards: " + debitCards);
+        System.out.println("Credit cards: " + creditCards);
         if (type == null) {
             return new ResponseEntity<>("put the cardtype", HttpStatus.FORBIDDEN);
         }
@@ -54,7 +68,13 @@ public class CardControllers {
 
         }
 
+        if(debitCards.size()>= 3 ){
+            return new ResponseEntity<>("exceded limit debit of cards",HttpStatus.FORBIDDEN);
+        }
 
+        else if (creditCards.size()>=3){
+            return new ResponseEntity<>("exceded limit credit of cards",HttpStatus.FORBIDDEN);
+        }
         else {
 
             Card newCard = new Card(currentClient, type, color,

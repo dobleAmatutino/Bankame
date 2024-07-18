@@ -14,6 +14,8 @@ public class LoanApplicationDTO {
 
     public  LoanApplicationDTO(){}
 
+
+
     public LoanApplicationDTO(long id, Double amount, int payments, String destinyAccount){this.id = id;
         this.amount = amount;
         this.payments = payments;

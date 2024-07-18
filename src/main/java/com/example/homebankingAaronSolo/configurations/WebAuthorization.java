@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.WebAttributes;
 
-
+import com.example.homebankingAaronSolo.configurations.MessageLog;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,8 +18,8 @@ import javax.servlet.http.HttpSession;
 
 public class WebAuthorization extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    MessageLog messageLog;
+MessageLog messageLog;
+
     private void clearAuthenticationAttributes(HttpServletRequest request) {
 
         HttpSession session = request.getSession(false);

@@ -38,22 +38,45 @@ public class LoansController {
         return loanRepository.findAll().stream().map(loan->new LoanDTO(loan)).collect(Collectors.toList());
     }
 
+    @RequestMapping(path = "/api/loans/{id}",method = RequestMethod.GET)
+    public ResponseEntity<?> getLoansByid(@PathVariable Long id){
+            return loanRepository.findById(id).map(loan -> new ResponseEntity<>(new LoanDTO(loan),HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+
+    }
+
     @RequestMapping(path="/api/newLoan",method = RequestMethod.POST)
     public ResponseEntity<Object> createAloan(@RequestParam String loanName,
                                               @RequestParam List<Integer> loanPayments,
-                                              @RequestParam double loanMaxAmount,
+                                              @RequestParam Double loanMaxAmount,
                                               @RequestParam Double loanInterests){
+        Loan newLoan=loanRepository.findByName(loanName);
 
-        if(loanName.isEmpty()){
+        if(loanName.isEmpty() && loanPayments.isEmpty() && loanMaxAmount.toString().isEmpty()&& loanInterests.toString().isEmpty() ){
+            return new ResponseEntity<>("all the parameters are empty",HttpStatus.FORBIDDEN);
+        }
+
+        if(loanName.isEmpty()==true){
             return new ResponseEntity<>("the new loan should have a name",HttpStatus.FORBIDDEN);
         }
+        if(loanPayments.size()==1){
+            if (loanPayments.get(0) <= 0 || loanPayments.get(0).toString().isEmpty()){
+                return new ResponseEntity<>("the loan should have atleast 2 payments", HttpStatus.FORBIDDEN);
+            }
+        }
+        else if (loanPayments.size()>1) {
+            for (int i= 0; i<loanPayments.size();i++){
 
-        if(loanPayments.isEmpty()){
-            return new ResponseEntity<>("the loan should have atleast 2 payments",HttpStatus.FORBIDDEN);
+                if ( loanPayments.get(i).toString().isEmpty()==true || loanPayments.get(i).toString()==""||loanPayments.get(i)<=0) {
+                    return new ResponseEntity<>("the loan should have atleast 2 payments", HttpStatus.FORBIDDEN);
+                }
+                else continue;
+        }
+
+
 
         }
 
-        if (loanMaxAmount<=10000){
+        if (loanMaxAmount.toString().isEmpty()==true||loanMaxAmount<=10000||loanMaxAmount==null){
             return new ResponseEntity<>("we dont have micro loans",HttpStatus.FORBIDDEN);
         }
 
@@ -61,7 +84,7 @@ public class LoansController {
             return new ResponseEntity<>("the loan needs interests",HttpStatus.FORBIDDEN);
         }
 
-        Loan newLoan=loanRepository.findByName(loanName);
+
 
         if(newLoan!=null){
             return new ResponseEntity<>("there is already a loan with this name",HttpStatus.FORBIDDEN);
@@ -148,6 +171,6 @@ public class LoansController {
         clientLoanRepository.save(clientLoan);
 
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>("you had apliccated for a: "+loanRepository.findById(loanApplicationDTO.getId()).getName()+ "loan: remember pay ",HttpStatus.CREATED);
     }
 }

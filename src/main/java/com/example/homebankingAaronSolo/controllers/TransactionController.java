@@ -38,7 +38,9 @@ public class TransactionController {
     public ResponseEntity<Object> makeAtransaction(@RequestParam Double amount, @RequestParam String description,
                                                    @RequestParam String originAccount, @RequestParam String destinyAccount,
                                                    Authentication authentication){
-        if(amount==null || description.isEmpty() || originAccount.isEmpty()
+
+
+        if(amount.toString()=="" || description.isEmpty() || originAccount.isEmpty()
                 || destinyAccount.isEmpty()){
             return new ResponseEntity<>("the information is not complete", HttpStatus.FORBIDDEN);
         }
@@ -51,6 +53,10 @@ public class TransactionController {
         }
 
         Account originAccount1 = accountRepository.findByNumber(originAccount);
+        Account destinyAccount1 = accountRepository.findByNumber(destinyAccount);
+        if(originAccount1 == null || destinyAccount1 == null){
+            return new ResponseEntity<>("this account doesn´t exist",HttpStatus.FORBIDDEN);
+        }
 
         if (amount> originAccount1.getBalance()){
             return new ResponseEntity<>("you have not that money for to transfer", HttpStatus.FORBIDDEN);
@@ -61,7 +67,7 @@ public class TransactionController {
         }
 
 
-        Account destinyAccount1 = accountRepository.findByNumber(destinyAccount);
+
         if(originAccount1==null){
             return new ResponseEntity<>("this origin account does not exist",HttpStatus.FORBIDDEN);
         }
@@ -90,7 +96,7 @@ public class TransactionController {
         transactionRepository.save(originTransaction);
         transactionRepository.save(destinyTransaction);
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>("You have made a transaction from account: "+originAccount + "to account: "+destinyAccount+ "for an amount of: "+amount,HttpStatus.CREATED);
 
     }
 }

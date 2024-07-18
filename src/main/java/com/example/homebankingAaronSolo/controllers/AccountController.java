@@ -34,14 +34,21 @@ public class AccountController {
         return accountRepository.findAll().stream().map(account -> new AccountsDTO(account)).collect(Collectors.toList());
     }
 
-    @RequestMapping("/api/accounts/{id}")
-    public AccountsDTO getAccountById(@PathVariable Long id){
-        return accountRepository.findById(id).map(account -> new AccountsDTO(account)).orElse(null);
+    @RequestMapping(path = "/api/accounts/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getAccountById(@PathVariable Long id){
+        return accountRepository.findById(id)
+                .map(account -> new ResponseEntity<>(new AccountsDTO(account), HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+
     }
 
     @RequestMapping(value = "/api/account/{id}",method = RequestMethod.PATCH)
     public ResponseEntity<Object> deleteAccount(@PathVariable @RequestParam Long id){
         Account accountTodelete = accountRepository.findById(id).orElse(null);
+
+        if (accountTodelete==null){
+            return new ResponseEntity<>("this account doesn't exist",HttpStatus.BAD_GATEWAY);
+        }
       //  Transaction transaction = accountTodelete.getTransactions();
       //  if(ac
 

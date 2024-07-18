@@ -15,7 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @Configuration
 public class WebAuthentications extends GlobalAuthenticationConfigurerAdapter {
-    @Autowired
+
+
     MessageLog messageLog;
     @Autowired
 
